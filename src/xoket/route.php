@@ -1,5 +1,7 @@
 <?php
 
+	namespace xoket;
+
 	class Route {
 
 		const ANY    = 15;

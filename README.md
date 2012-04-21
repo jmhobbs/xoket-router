@@ -16,17 +16,17 @@ The :id and :action are named parameters, and you can do a couple things with th
 
 You can specify constraints for what they will match:
 
-    Route::add( 'photos/:id(/:action)' )
+    xoket\Route::add( 'photos/:id(/:action)' )
       ->constraints( array( 'id' => '[0-9]+' ) );
 
 and you can specify defaults:
 
-    Route::add( 'photos/:id(/:action)' )
+    xoket\Route::add( 'photos/:id(/:action)' )
       ->defaults( array( 'controller' => 'photo', 'action' => 'view' ) );
 
 Now that you have routes, you can match on them:
 
-    Route::match( 'photos/5/delete' );
+    xoket\Route::match( 'photos/5/delete' );
 
 Route::match will either return false if no match is found, or an array of parameters, like so:
 

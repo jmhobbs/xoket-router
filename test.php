@@ -1,37 +1,37 @@
 <?php
 	require_once( 'simpletest/autorun.php' );
-	require_once( 'route.php' );
+	require_once( 'src/xoket/route.php' );
 
 	class TestCreation extends UnitTestCase {
 		
 			function testAdd () {
-				Route::flush();
-				Route::add( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
+				xoket\Route::flush();
+				xoket\Route::add( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
 			}
 
 			function testGet () {
-				Route::flush();
-				Route::get( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
+				xoket\Route::flush();
+				xoket\Route::get( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
 			}
 
 			function testPost () {
-				Route::flush();
-				Route::post( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
+				xoket\Route::flush();
+				xoket\Route::post( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
 			}
 
 			function testPut () {
-				Route::flush();
-				Route::put( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
+				xoket\Route::flush();
+				xoket\Route::put( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
 			}
 
 			function testDelete () {
-				Route::flush();
-				Route::delete( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
+				xoket\Route::flush();
+				xoket\Route::delete( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
 			}
 
 	}
@@ -39,42 +39,42 @@
 	class TestResponds extends UnitTestCase {
 		
 			function testAdd () {
-				Route::flush();
-				Route::add( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
-				$this->assertTrue( Route::find( 'test' )->respondsTo( Route::ANY ) );
+				xoket\Route::flush();
+				xoket\Route::add( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
+				$this->assertTrue( xoket\Route::find( 'test' )->respondsTo( xoket\Route::ANY ) );
 			}
 
 			function testGet () {
-				Route::flush();
-				Route::get( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
-				$this->assertTrue( Route::find( 'test' )->respondsTo( Route::GET ) );
-				$this->assertFalse( Route::find( 'test' )->respondsTo( Route::POST & Route::PUT & Route::DELETE ) );
+				xoket\Route::flush();
+				xoket\Route::get( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
+				$this->assertTrue( xoket\Route::find( 'test' )->respondsTo( xoket\Route::GET ) );
+				$this->assertFalse( xoket\Route::find( 'test' )->respondsTo( xoket\Route::POST & xoket\Route::PUT & xoket\Route::DELETE ) );
 			}
 
 			function testPost () {
-				Route::flush();
-				Route::post( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
-				$this->assertTrue( Route::find( 'test' )->respondsTo( Route::POST ) );
-				$this->assertFalse( Route::find( 'test' )->respondsTo( Route::GET & Route::PUT & Route::DELETE ) );
+				xoket\Route::flush();
+				xoket\Route::post( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
+				$this->assertTrue( xoket\Route::find( 'test' )->respondsTo( xoket\Route::POST ) );
+				$this->assertFalse( xoket\Route::find( 'test' )->respondsTo( xoket\Route::GET & xoket\Route::PUT & xoket\Route::DELETE ) );
 			}
 
 			function testPut () {
-				Route::flush();
-				Route::put( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
-				$this->assertTrue( Route::find( 'test' )->respondsTo( Route::PUT ) );
-				$this->assertFalse( Route::find( 'test' )->respondsTo( Route::POST & Route::GET & Route::DELETE ) );
+				xoket\Route::flush();
+				xoket\Route::put( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
+				$this->assertTrue( xoket\Route::find( 'test' )->respondsTo( xoket\Route::PUT ) );
+				$this->assertFalse( xoket\Route::find( 'test' )->respondsTo( xoket\Route::POST & xoket\Route::GET & xoket\Route::DELETE ) );
 			}
 
 			function testDelete () {
-				Route::flush();
-				Route::delete( 'test', 'test' );
-				$this->assertIsA( Route::find( 'test' ), 'Route' );
-				$this->assertTrue( Route::find( 'test' )->respondsTo( Route::DELETE ) );
-				$this->assertFalse( Route::find( 'test' )->respondsTo( Route::POST & Route::PUT & Route::GET ) );
+				xoket\Route::flush();
+				xoket\Route::delete( 'test', 'test' );
+				$this->assertIsA( xoket\Route::find( 'test' ), 'xoket\Route' );
+				$this->assertTrue( xoket\Route::find( 'test' )->respondsTo( xoket\Route::DELETE ) );
+				$this->assertFalse( xoket\Route::find( 'test' )->respondsTo( xoket\Route::POST & xoket\Route::PUT & xoket\Route::GET ) );
 			}
 
 	}
@@ -82,21 +82,21 @@
 	class TestMatches extends UnitTestCase {
 
 		function setUp () {
-			Route::flush();
+			xoket\Route::flush();
 
-			Route::add(
+			xoket\Route::add(
 				'photos', 
 				'photos(/:id(/:action))', 
 				array( 'id' => '[0-9]+', 'action' => '[a-z]+' ) 
 			)->defaults( array( 'controller' => 'photos', 'action' => 'index' ) );
 
-			Route::add(
+			xoket\Route::add(
 				'error', 
 				'(:directory/)error/:action(/:message)',
 				array( 'action' => '[0-9]{3}' )
 			)->defaults( array( 'controller' => 'error' ) );
 
-			Route::add( 
+			xoket\Route::add( 
 				'api', 
 				'api/v:version/:controller(/:action)', 
 				array( 'version' => '[0-9]+' )
@@ -104,12 +104,12 @@
 		}
 
 		function testPhotos () {
-			$match = Route::match( 'photos' );
+			$match = xoket\Route::match( 'photos' );
 			$this->assertIsA( $match, 'array' );
 			$this->assertEqual( $match['controller'], 'photos' );
 			$this->assertEqual( $match['action'], 'index' );
 
-			$match = Route::match( 'photos/5' );
+			$match = xoket\Route::match( 'photos/5' );
 			$this->assertIsA( $match, 'array' );
 			$this->assertEqual( $match['controller'], 'photos' );
 			$this->assertEqual( $match['action'], 'index' );
@@ -121,24 +121,24 @@
 	class TestMatchPrecedence extends UnitTestCase {
 		
 		function setUp () {
-			Route::flush();
-			Route::add(
+			xoket\Route::flush();
+			xoket\Route::add(
 				'photos_bare', 
 				'photos'
 			)->defaults( array( 'controller' => 'bare' ) );
 
-			Route::add( 
+			xoket\Route::add( 
 				'photos_precise', 
 				'photos(/:id(/:action))', 
 				array( 'id' => '[0-9]+', 'action' => '[a-z]+' ) 
 			)->defaults( array( 'controller' => 'precise' ) );
 
-			Route::add( 
+			xoket\Route::add( 
 				'photos_loose', 
 				'photos(/:id(/:action))' 
 			)->defaults( array( 'controller' => 'loose' ) );
 
-			Route::add( 
+			xoket\Route::add( 
 				'photos_unreachable', 
 				'photos(/:id(/:action))', 
 				array( 'id' => '[0-9]+', 'action' => '[a-z]+' )
@@ -146,25 +146,25 @@
 		}
 
 		function testBare () {
-			$match = Route::match( 'photos' );
+			$match = xoket\Route::match( 'photos' );
 			$this->assertIsA( $match, 'array' );
 			$this->assertEqual( $match['controller'], 'bare' );
 		}
 
 		function testPrecise () {
-			$match = Route::match( 'photos/5/view' );
+			$match = xoket\Route::match( 'photos/5/view' );
 			$this->assertIsA( $match, 'array' );
 			$this->assertEqual( $match['controller'], 'precise' );
 		}
 
 		function testLoose () {
-			$match = Route::match( 'photos/loljk/view' );
+			$match = xoket\Route::match( 'photos/loljk/view' );
 			$this->assertIsA( $match, 'array' );
 			$this->assertEqual( $match['controller'], 'loose' );
 		}
 
 		function testUnreachable () {
-			$match = Route::match( 'photos/5/view' );
+			$match = xoket\Route::match( 'photos/5/view' );
 			$this->assertIsA( $match, 'array' );
 			$this->assertNotEqual( $match['controller'], 'loose' );
 		}
@@ -174,21 +174,21 @@
 	class TestGetters extends UnitTestCase {
 
 		function testGetDefaults () {
-			Route::flush();
-			$route = Route::add( 'test', 'test' );
-			$this->assertSame( Route::parameters(), $route->defaults() );
+			xoket\Route::flush();
+			$route = xoket\Route::add( 'test', 'test' );
+			$this->assertSame( xoket\Route::parameters(), $route->defaults() );
 		}
 
 		function testGetMethods () {
-			Route::flush();
-			$route = Route::add( 'test', 'test', null, Route::POST );
-			$this->assertEqual( Route::POST, $route->methods() );
+			xoket\Route::flush();
+			$route = xoket\Route::add( 'test', 'test', null, xoket\Route::POST );
+			$this->assertEqual( xoket\Route::POST, $route->methods() );
 		}
 
 		function testGetConstraints () {
-			Route::flush();
+			xoket\Route::flush();
 			$constraints = array( 'id' => '[0-9]+' );
-			$route = Route::add( 'test', 'test', $constraints );
+			$route = xoket\Route::add( 'test', 'test', $constraints );
 			$this->assertSame( $constraints, $route->constraints() );
 		}
 
@@ -197,29 +197,29 @@
 	class TestSetters extends UnitTestCase {
 
 		function testSetDefaults () {
-			Route::flush();
+			xoket\Route::flush();
 			$defaults = array(
 				'directory'  => 'directory',
 				'controller' => 'controller',
 				'action'     => 'action',
 			);
-			$route = Route::add( 'test', 'test' );
+			$route = xoket\Route::add( 'test', 'test' );
 			$route->defaults( $defaults );
 			$this->assertSame( $defaults, $route->defaults() );
 		}
 
 		function testSetMethods () {
-			Route::flush();
-			$route = Route::add( 'test', 'test', null, Route::POST );
-			$this->assertEqual( Route::POST, $route->methods() );
-			$route->methods( Route::GET );
-			$this->assertEqual( Route::GET, $route->methods() );
+			xoket\Route::flush();
+			$route = xoket\Route::add( 'test', 'test', null, xoket\Route::POST );
+			$this->assertEqual( xoket\Route::POST, $route->methods() );
+			$route->methods( xoket\Route::GET );
+			$this->assertEqual( xoket\Route::GET, $route->methods() );
 		}
 
 		function testSetConstraints () {
-			Route::flush();
+			xoket\Route::flush();
 			$constraints = array( 'id' => '[0-9]+' );
-			$route = Route::add( 'test', 'test', $constraints );
+			$route = xoket\Route::add( 'test', 'test', $constraints );
 			$this->assertSame( $constraints, $route->constraints() );
 
 			$constraints['id'] = '[a-z]+';
